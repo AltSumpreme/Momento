@@ -14,7 +14,7 @@ export default function HomePage() {
           <button className=" flex items-center text-white/80 hover:text-white duration-300">
             Discover Events <ArrowUpRightIcon className="ml-1" size={16} />
           </button>
-          <Link href="/login" className="flex items-center text-white/80 hover:text-white duration-300">
+          <Link href="/login">
           <button
             className="py-1 px-3 text-white/80 hover:text-white rounded-full bg-white/20 hover:bg-white/30 duration-300"
           >
@@ -40,12 +40,13 @@ export default function HomePage() {
             Set up an event page, invite friends and sell tickets. Host a
             memorable event today.
           </p>
+          <Link href="/login">
           <button
-            onClick={() => (window.location.href = "/login")}
             className="px-6 py-3 text-black bg-white rounded-lg font-semibold hover:bg-white/90 duration-300"
           >
             Create Your First Event
           </button>
+          </Link>
         </div>
 
         <div className="w-1/2 flex items-center justify-center">
