@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   
@@ -13,12 +14,13 @@ export default function HomePage() {
           <button className=" flex items-center text-white/80 hover:text-white duration-300">
             Discover Events <ArrowUpRightIcon className="ml-1" size={16} />
           </button>
+          <Link href="/login" className="flex items-center text-white/80 hover:text-white duration-300">
           <button
-            onClick={() => (window.location.href = "/login")}
             className="py-1 px-3 text-white/80 hover:text-white rounded-full bg-white/20 hover:bg-white/30 duration-300"
           >
             Login
           </button>
+          </Link>
         </div>
       </div>
 
