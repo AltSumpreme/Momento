@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 import { setToken } from "@/utils/auth";
 import { ENDPOINTS } from "@/utils/apiConfig";
 
@@ -49,6 +50,12 @@ export default function Login() {
         >
           Login
         </button>
+        <Link
+          href="/signup"
+          className="block text-center mt-4 text-white/80 hover:text-white duration-300"
+        >
+          Don&apos;t have an account? Sign Up
+        </Link>
         {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
       </div>
     </div>
