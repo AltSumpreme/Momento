@@ -9,9 +9,11 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="h-full min-h-screen w-screen bg-black text-white">
+    <div className="h-full min-h-screen w-screen bg-black text-white bg-[radial-gradient(circle_at_bottom,_#0a0a23_30%,_black_80%)] bg-fixed">
       <div className="sticky top-0 flex items-center justify-between p-4 px-6 bg-black/50 backdrop-blur-md z-10">
-        <Link href="/" className="text-lg font-bold text-white/80">M.</Link>
+        <Link href="/" className="text-lg font-bold text-white/80">
+          M.
+        </Link>
         <div className="flex space-x-4 font-semibold text-sm">
           <Link
             href="/discover"
@@ -35,7 +37,7 @@ export default function Layout({
 
       {children}
 
-      <div className="px-36 py-12">
+      <div className="px-36 pt-12 pb-20">
         <div className="h-[1px] mb-4 bg-white/20 rounded-full"></div>
 
         <div className="flex justify-between items-center py-4 text-white/80">

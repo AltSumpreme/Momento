@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { setToken } from "@/utils/auth";
+import { getToken, setToken } from "@/utils/auth";
 import { ENDPOINTS } from "@/utils/apiConfig";
 
 export default function Login() {
@@ -13,6 +13,14 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const token = getToken();
+
+  useEffect(() => {
+    if (token) {
+      router.push("/user");
+      return;
+    }
+  }, [token]);
 
   const handleLogin = async () => {
     try {

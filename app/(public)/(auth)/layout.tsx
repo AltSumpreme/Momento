@@ -4,7 +4,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen bg-black text-white">
+    <div className="flex min-h-screen bg-black text-white bg-[radial-gradient(circle_at_left,_#0a0a23_1%,_black_100%)] bg-fixed">
       <section className="border-r-[1px] border-white/20 w-full center">
         <div className="flex flex-col items-start justify-center space-y-6 leading-none">
           <h1 className="text-2xl font-bold text-white/80">Momento</h1>
