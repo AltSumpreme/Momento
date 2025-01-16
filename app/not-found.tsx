@@ -10,8 +10,7 @@ const CustomErrorPage = () => {
         </span>
       </h1>
       <p className="mb-8 text-lg text-center text-white/80">
-        Let's get you back to the
-        fun!
+        Let&apos;s get you back to the fun!
       </p>
       <Link
         href="/"

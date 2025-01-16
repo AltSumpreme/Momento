@@ -10,8 +10,8 @@ export default function Layout({
 }>) {
   return (
     <div className="h-full min-h-screen w-screen bg-black text-white">
-      <div className="sticky top-0 flex items-center justify-between p-4 px-6 bg-black/40 backdrop-blur-md z-10">
-        <div className="text-lg font-bold text-white/80">M.</div>
+      <div className="sticky top-0 flex items-center justify-between p-4 px-6 bg-black/50 backdrop-blur-md z-10">
+        <Link href="/" className="text-lg font-bold text-white/80">M.</Link>
         <div className="flex space-x-4 font-semibold text-sm">
           <Link
             href="/discover"
@@ -41,7 +41,7 @@ export default function Layout({
         <div className="flex justify-between items-center py-4 text-white/80">
           <div className="space-x-6">
             <span className="font-bold text-white">Momento</span>
-            <span>What's New</span>
+            <span>What&apos;s New</span>
             <span>Discover</span>
             <span>Pricing</span>
             <span>Help</span>
