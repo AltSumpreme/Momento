@@ -101,6 +101,7 @@ const fetchData = async () => {
       { category: "Fitness", events: 437 },
       { category: "Wellness", events: 809 },
       { category: "Crypto", events: 770 },
+      { category: "Tech", events: 1023 },
     ],
   };
 };
@@ -171,9 +172,8 @@ export default function DiscoverPage() {
           </div>
         )}
 
-        <div className="h-[1px] my-16 bg-white/20 rounded-full"></div>
-
         <div className="px-2">
+          <div className="h-[1px] my-16 bg-white/20 rounded-full"></div>
           <h2 className="text-2xl font-semibold mb-4">Browse by Category</h2>
           <div className="grid grid-cols-3 gap-4">
             {categories.map(({ category, events }) => (

@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
-import { setToken } from "@/utils/auth";
+import { getToken, setToken } from "@/utils/auth";
 import { ENDPOINTS } from "@/utils/apiConfig";
 import Link from "next/link";
 
@@ -14,8 +14,16 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const token = getToken();
 
-  const handleLogin = async () => {
+  useEffect(() => {
+    if (token) {
+      router.push("/user");
+      return;
+    }
+  }, [token]);
+
+  const handleSignUp = async () => {
     try {
       const res = await axios.post(ENDPOINTS.SIGNUP, {
         name,
@@ -54,12 +62,15 @@ export default function SignUp() {
           className="w-full p-2 mb-4 text-white/80 bg-white/10 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
-          onClick={handleLogin}
+          onClick={handleSignUp}
           className="w-full py-2 text-black bg-white rounded-md hover:bg-gray-100 duration-300"
         >
           Sign Up
         </button>
-        <Link href="/login" className="block text-center mt-4 text-white/80 hover:text-white duration-300">
+        <Link
+          href="/login"
+          className="block text-center mt-4 text-white/80 hover:text-white duration-300"
+        >
           Already have an account? Login
         </Link>
         {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
