@@ -1,28 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
-import { getCookie, deleteCookie } from "cookies-next";
-import { ENDPOINTS } from "@/utils/apiConfig";
+import { deleteCookie } from "cookies-next";
 import Link from "next/link";
 
-export default function SecurePage() {
+export default function UserPage() {
   const router = useRouter();
-  const [data, setData] = useState("");
-  const token = getCookie("token");
 
-  useEffect(() => {
-    axios
-      .get(ENDPOINTS.SECURE, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => setData(res.data.message))
-      .catch(() => {
-        deleteCookie("token");
-        router.push("/login");
-      });
-  }, [router, token]);
+  /*
+
+  Contents for UserPage() will be loaded from API
+
+  */
 
   const handleLogout = () => {
     deleteCookie("token");
@@ -30,9 +19,11 @@ export default function SecurePage() {
   };
 
   return (
-    <div>
+    <div className="center flex-col size-screen">
       <h1>User Dashboard</h1>
-      <Link className="bg-blue-500 p-2" href="/user/profile">View Profile</Link>
+      <Link className="bg-blue-500 p-2" href="/user/profile">
+        View Profile
+      </Link>
       <button className="bg-red-500 p-2" onClick={handleLogout}>
         Logout
       </button>

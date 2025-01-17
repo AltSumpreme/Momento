@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CustomErrorPage = () => {
   return (
-    <div className="center flex-col size-screen bg-black text-white p-8 justify-center items-center">
+    <div className="center flex-col size-screen bg-black text-white bg-[radial-gradient(circle_at_bottom,_#0a0a23_30%,_black_80%)] bg-fixed">
       <h1 className="text-3xl font-semibold mb-4 text-center">
         <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
           Oops! You are at the wrong room for party.
@@ -14,7 +14,7 @@ const CustomErrorPage = () => {
       </p>
       <Link
         href="/"
-        className="bg-black hover:bg-white/20 border border-white/20 font-bold py-2 px-6 rounded-md transition duration-300 ease-in-out transform"
+        className="hover:bg-white/20 border border-white/20 font-bold py-2 px-6 rounded-md transition duration-300 ease-in-out transform"
       >
         Return Home
       </Link>
