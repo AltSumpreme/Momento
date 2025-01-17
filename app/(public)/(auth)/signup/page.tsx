@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
-import { getToken, setToken } from "@/utils/auth";
+import {  setCookie } from "cookies-next";
 import { ENDPOINTS } from "@/utils/apiConfig";
 import Link from "next/link";
 
@@ -13,27 +13,22 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const token = getToken();
-
-  useEffect(() => {
-    if (token) {
-      router.push("/user");
-      return;
-    }
-  }, [token]);
+  const [message, setMessage] = useState("");
 
   const handleSignUp = async () => {
     try {
+      setMessage("Signing up...");
       const res = await axios.post(ENDPOINTS.SIGNUP, {
         name,
         email,
         password,
       });
-      setToken(res.data.token);
+      setCookie("token" ,res.data.token);
       router.push("/user");
     } catch {
-      setError("Invalid credentials");
+      setMessage("Please try again.");
+    } finally {
+      setMessage("Loading...");
     }
   };
   return (
@@ -73,7 +68,7 @@ export default function SignUp() {
         >
           Already have an account? Login
         </Link>
-        {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
+        {message && <p className="mt-4 text-red-500 text-center">{message}</p>}
       </div>
     </div>
   );
