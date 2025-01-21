@@ -21,7 +21,7 @@ export default function UserPage() {
   return (
     <div className="center flex-col size-screen">
       <h1>User Dashboard</h1>
-      <Link className="bg-blue-500 p-2" href="/user/profile">
+      <Link className="bg-blue-500 p-2" href="/dashboard/profile">
         View Profile
       </Link>
       <button className="bg-red-500 p-2" onClick={handleLogout}>

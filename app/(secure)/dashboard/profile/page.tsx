@@ -9,15 +9,15 @@ import Link from "next/link";
 
 export default function UserProfilePage() {
   const router = useRouter();
-  const [data, setData] = useState("");
+  const [data, setData] = useState({ id: "", name: "", email: "", role: "" });
   const token = getCookie("token");
 
   useEffect(() => {
     axios
-      .get(ENDPOINTS.SECURE, {
+      .get(ENDPOINTS.PROFILE, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((res) => setData(res.data.user))
+      .then((res) => setData(res.data))
       .catch(() => {
         deleteCookie("token");
         router.push("/login");
@@ -32,8 +32,14 @@ export default function UserProfilePage() {
   return (
     <div className="center flex-col size-screen">
       <h1>User Profile Page</h1>
-      <p>User Data: {JSON.stringify(data)}</p>
-      <Link className="bg-blue-500 p-2" href="/user">
+      <div>
+        <p>User ID: {data.id}</p>
+        <p>Name: {data.name}</p>
+        <p>Email: {data.email}</p>
+        <p>Role: {data.role}</p>
+      </div>
+
+      <Link className="bg-blue-500 p-2" href="/dashboard">
         Go Back
       </Link>
       <button className="bg-red-500 p-2" onClick={handleLogout}>

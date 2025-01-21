@@ -51,7 +51,7 @@ export default function SignUp() {
       if (res.data.token) {
         setCookie("token", res.data.token, { path: "/", maxAge: 60 * 60 });
         setMessage("");
-        router.push("/user");
+        router.push("/dashboard");
       } else {
         setMessage("Sign up failed. Please try again.");
       }
