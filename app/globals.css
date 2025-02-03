@@ -11,6 +11,9 @@
   .size-screen {
     @apply w-screen h-screen;
   }
+  .size-full {
+    @apply w-full h-full;
+  }
 }
 
 body {
