@@ -49,9 +49,18 @@ export default function UserPage() {
     )})`;
 
   return (
-    <div className="flex h-full min-h-screen w-screen bg-black text-white bg-[radial-gradient(circle_at_bottom,_#0a0a23_30%,_black_80%)] bg-fixed">
-      <div className="w-3/4">
-      Events and Stuff
+    <div className="flex h-screen w-screen overflow-hidden bg-black text-white bg-[radial-gradient(circle_at_bottom,_#0a0a23_30%,_black_80%)] bg-fixed">
+      <div className="flex flex-col w-3/4 p-4">
+        <div className="flex justify-between items-center text-white/80">
+          <div className="font-semibold">Momento</div>
+          <div className="flex space-x-4">
+            <Link href="/discover">Discover</Link>
+            <button>Create Event</button>
+          </div>
+        </div>
+        <div className="center size-full bg-white/10">
+          No Event Planned.
+        </div>
       </div>
       <div className="w-1/4 p-4">
         <div className="size-full bg-white/5 rounded-xl ring-1 ring-white/10 p-4 flex flex-col justify-between h-full">

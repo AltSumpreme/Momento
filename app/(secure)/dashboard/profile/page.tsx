@@ -30,26 +30,52 @@ export default function UserProfilePage() {
     router.push("/login");
   };
 
+  
+  const hashStringToHsl = (id: string) => {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) {
+      hash = id.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const h = hash % 360;
+    const s = 70;
+    const l = 50;
+    return `hsl(${h}, ${s}%, ${l}%)`;
+  };
+
+  const gradient =
+    data.id &&
+    `linear-gradient(135deg, ${hashStringToHsl(data.id)}, ${hashStringToHsl(
+      data.id + "salt"
+    )})`;
+
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white flex flex-col size-screen">
       <nav className="flex justify-between center p-2 border-b border-white/20">
-        <Link className="flex center text-blue-500 hover:underline" href="/dashboard">
-        <ChevronLeft size={20} />
+        <Link
+          className="flex center text-blue-500 hover:underline"
+          href="/dashboard"
+        >
+          <ChevronLeft size={20} />
           Go Back
         </Link>
         <h1 className="font-bold">Profile</h1>
-        <button className="bg-red-500 p-1 px-3 rounded-full font-medium" onClick={handleLogout}>
+        <button
+          className="bg-red-500 p-1 px-3 rounded-full font-medium"
+          onClick={handleLogout}
+        >
           Logout
         </button>
       </nav>
-      <div className="size-screen">
-        <div className="h-24 w-24 bg-white">
-
+      <div className="size-full center">
+        <div className="center flex-col bg-white/5 w-96 p-10 rounded-lg  ring-1 ring-white/10">
+          <div
+            className="w-24 aspect-square rounded-full flex items-center justify-center"
+            style={{ background: gradient }}
+          />
+          <p>Name: {data.name}</p>
+          <p>Email: {data.email}</p>
+          <p>Role: {data.role}</p>
         </div>
-        <p>User ID: {data.id}</p>
-        <p>Name: {data.name}</p>
-        <p>Email: {data.email}</p>
-        <p>Role: {data.role}</p>
       </div>
     </div>
   );
