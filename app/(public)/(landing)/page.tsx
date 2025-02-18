@@ -38,7 +38,7 @@ export default function HomePage() {
             xmlns="http://www.w3.org/2000/svg"
           >
             {" "}
-            <g clip-path="url(#clip0_234_854)">
+            <g clipPath="url(#clip0_234_854)">
               {" "}
               <path
                 fillRule="evenodd"
@@ -58,8 +58,8 @@ export default function HomePage() {
                 gradientUnits="userSpaceOnUse"
               >
                 {" "}
-                <stop stop-color="#60a5fa" />{" "}
-                <stop offset="1" stop-color="#2563eb" />{" "}
+                <stop stopColor="#60a5fa" />{" "}
+                <stop offset="1" stopColor="#2563eb" />{" "}
               </linearGradient>{" "}
               <clipPath id="clip0_234_854">
                 {" "}

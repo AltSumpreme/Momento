@@ -30,7 +30,6 @@ export default function UserProfilePage() {
     router.push("/login");
   };
 
-  
   const hashStringToHsl = (id: string) => {
     let hash = 0;
     for (let i = 0; i < id.length; i++) {
@@ -72,9 +71,15 @@ export default function UserProfilePage() {
             className="w-24 aspect-square rounded-full flex items-center justify-center"
             style={{ background: gradient }}
           />
-          <p>Name: {data.name}</p>
-          <p>Email: {data.email}</p>
-          <p>Role: {data.role}</p>
+          <div className="center flex-col mt-4 space-y-2">
+            <p className="p-2 border border-white/10 rounded-md">
+              Name: {data.name}
+            </p>
+            <p className="p-2 border border-white/10 rounded-md">
+              Email: {data.email}
+            </p>
+            {/* <p>Role: {data.role}</p> */}
+          </div>
         </div>
       </div>
     </div>
