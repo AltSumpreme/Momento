@@ -59,7 +59,7 @@ export default function UserProfilePage() {
         </Link>
         <h1 className="font-bold">Profile</h1>
         <button
-          className="bg-red-500 p-1 px-3 rounded-full font-medium"
+          className="bg-red-500 p-1 px-4 rounded-full font-semibold hover:bg-red-600"
           onClick={handleLogout}
         >
           Logout
@@ -78,7 +78,6 @@ export default function UserProfilePage() {
             <p className="p-2 border border-white/10 rounded-md">
               Email: {data.email}
             </p>
-            {/* <p>Role: {data.role}</p> */}
           </div>
         </div>
       </div>

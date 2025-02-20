@@ -176,7 +176,10 @@ export default function UserPage() {
       <div className="flex flex-col w-3/4 p-4">
         <div className="flex justify-between items-center text-white/80">
           {/* {Navbar} */}
-          <Link href="/" className="text-lg font-bold text-white/80 hover:text-white duration-300">
+          <Link
+            href="/"
+            className="text-lg font-bold text-white/80 hover:text-white duration-300"
+          >
             Momento
           </Link>
           <div className="flex space-x-4">
@@ -199,68 +202,7 @@ export default function UserPage() {
           </div>
         </div>
         <div className="size-full overflow-y-scroll flex justify-center">
-          <div className="w-[800px] mt-20">
-            <div className="px-2">
-              <h2 className="text-2xl font-semibold mb-4">
-                Explore Local Events
-              </h2>
-              <div className="flex gap-2 mb-8">
-                {locations.map((region) => (
-                  <button
-                    key={region.region}
-                    onClick={() => setSelectedRegion(region.region)}
-                    className={`px-3 py-1 rounded-md duration-300 hover:text-white/80 text-white/80 ${
-                      selectedRegion === region.region
-                        ? "hover:text-white bg-white/10"
-                        : "hover:bg-white/5 text-white/60"
-                    }`}
-                  >
-                    {region.region}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {selectedLocationData && (
-              <div className="grid grid-cols-4 gap-4 text-nowrap">
-                {selectedLocationData.places.map((place) => (
-                  <div
-                    key={place.city}
-                    className="flex items-center duration-300 hover:bg-white/10 border border-white/0 hover:border-white/5 p-2 rounded-xl"
-                  >
-                    <div className="h-full center mr-2">
-                      <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
-                    </div>
-                    <div className="flex flex-col">
-                      <p className="font-semibold">{place.city}</p>
-                      <p className="text-sm text-white/60">
-                        {place.events} Events
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <div className="px-2 pb-20">
-              <div className="h-[1px] my-16 bg-white/20 rounded-full"></div>
-              <h2 className="text-2xl font-semibold mb-4">
-                Browse by Category
-              </h2>
-              <div className="grid grid-cols-3 gap-4">
-                {categories.map(({ category, events }) => (
-                  <div
-                    key={category}
-                    className="p-4 rounded-xl flex flex-col bg-white/10 duration-300 hover:bg-white/15 border border-white/5"
-                  >
-                    <div className="w-12 h-12 bg-gray-300 rounded-full mb-2"></div>
-                    <p className="font-semibold">{category}</p>
-                    <p className="text-white/60">{events} Events</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* WIlL SHOW UPCOMING EVENTS AND THE EVENTS USER BOOKED HERE */}
         </div>
       </div>
       <div className="w-1/4 p-4">
