@@ -158,7 +158,7 @@ export default function DiscoverPage() {
             {selectedLocationData.places.map((place) => (
               <div
                 key={place.city}
-                className="flex items-center duration-300 hover:bg-white/10 p-2 rounded-xl"
+                className="flex items-center duration-300 hover:bg-white/10 border border-white/0 hover:border-white/5 p-2 rounded-xl"
               >
                 <div className="h-full center mr-2">
                   <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
