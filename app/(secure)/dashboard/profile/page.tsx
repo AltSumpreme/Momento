@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { getCookie, deleteCookie } from "cookies-next";
-import { ENDPOINTS } from "@/utils/apiConfig";
+import { ENDPOINTS } from "@/utils/api-config";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
