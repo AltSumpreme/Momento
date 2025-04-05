@@ -4,24 +4,26 @@ import { ENDPOINTS } from "@/utils/api-config";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 
-export function getEvents() {
+export function useEvents() {
   const router = useRouter();
   const [events, setEvents] = useState({});
   const token = getCookie("token");
 
-  const fetchEvents = () => {
-    useEffect(() => {
-      axios
-        .get(ENDPOINTS.GETEVENTS, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => setEvents(res.data))
-        .catch(() => {
-          deleteCookie("token");
-          router.push("/login");
-        });
-    }, [router, token]);
+  const fetchEvents = async () => {
+    try {
+      const res = await axios.get(ENDPOINTS.GET_EVENTS, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setEvents(res.data);
+    } catch {
+      deleteCookie("token");
+      router.push("/login");
+    }
   };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   return { events, fetchEvents };
 }
