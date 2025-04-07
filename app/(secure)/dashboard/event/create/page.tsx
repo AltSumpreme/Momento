@@ -5,7 +5,7 @@ import axios from "axios";
 import { ENDPOINTS } from "@/utils/api-config";
 import { getCookie } from "cookies-next";
 
-const CreateEventForm = () => {
+const CreateEventPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [eventDateTime, setEventDateTime] = useState("");
@@ -94,4 +94,4 @@ const CreateEventForm = () => {
   );
 };
 
-export default CreateEventForm;
+export default CreateEventPage;

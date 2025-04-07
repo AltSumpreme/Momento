@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export function useEvents() {
   const router = useRouter();
-  const [events, setEvents] = useState({});
+  const [events, setEvents] = useState([]);
   const token = getCookie("token");
 
   const fetchEvents = async () => {
