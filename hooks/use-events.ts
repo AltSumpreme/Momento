@@ -5,10 +5,22 @@ import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { useLocalStorage } from "usehooks-ts";
 
+type Event = {
+  id: string;
+  title: string;
+  description: string;
+  eventDateTime: string;
+  location: string;
+  userId: string;
+};
+
 export function useEvents() {
   const router = useRouter();
-  const [events, setEvents] = useState([]);
-  const [selectedEventId, setSelectedEventId] = useLocalStorage("selectedEvent", "");
+  const [events, setEvents] = useState<Event[]>([]);
+  const [selectedEventId, setSelectedEventId] = useLocalStorage(
+    "selectedEvent",
+    ""
+  );
   const token = getCookie("token");
 
   const selectedEvent = events?.find(
