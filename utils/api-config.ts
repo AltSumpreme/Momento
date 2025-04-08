@@ -6,5 +6,6 @@ export const ENDPOINTS = {
   PROFILE: `${BASE_URL}/user/profile`,
   GET_EVENTS: `${BASE_URL}/event/events` ,
   CREATE_EVENT: `${BASE_URL}/event/events`,
-  BOOK_EVENT: `${BASE_URL}/book`
+  BOOK_EVENT: `${BASE_URL}/book`,
+  GET_BOOKINGS: `${BASE_URL}/book`
 };
