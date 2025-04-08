@@ -10,37 +10,30 @@ Guest Management: Send invitations, track RSVPs, and communicate with attendees.
 
 Task Scheduling: Stay on top of deadlines and tasks with an integrated scheduler.
 
-Budget Tracking: Manage event expenses and stay within budget.
-
 Real-Time Updates: Get instant updates on event changes and attendee statuses.
 
-Customizable Themes: Personalize the look and feel of your events.
-
-Analytics Dashboard: Gain insights into attendee engagement and event success.
-
-Installation
+## Installation
 
 Follow these steps to set up Momento locally:
 
 Clone the repository:
-
+```bash
 git clone https://github.com/yourusername/momento.git
-
+```
 Navigate to the project directory:
-
+```bash
 cd momento
-
+```
 Install dependencies:
-
+```bash
 npm install
-
+```
 Start the development server:
-
+``` bash
 npm run dev
+```
 
-Open your browser and navigate to http://localhost:3000.
-
-Technologies Used
+## Technologies Used
 
 Frontend: Next.js, Tailwind CSS
 
@@ -62,17 +55,8 @@ Plan Your Event:
 
 Add event details like name, date, location, and description.
 
-Customize your event with themes and branding options.
 
-Manage Guests:
-
-Import guest lists, send invitations, and track RSVPs.
-
-Track Progress:
-
-Use the dashboard to monitor tasks, budget, and engagement metrics.
-
-Contributing
+## Contributing
 
 We welcome contributions to improve Momento! To contribute:
 
@@ -90,5 +74,5 @@ git push origin feature-name
 ```
 Open a pull request on the main repository.
 
-Thank you for using Momento! We’re excited to help you make your events memorable.
+Thank you for using Momento!
 
