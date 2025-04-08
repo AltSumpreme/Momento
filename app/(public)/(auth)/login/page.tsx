@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import Link from "next/link";
 import { setCookie } from "cookies-next";
-import { ENDPOINTS } from "@/utils/apiConfig";
+import { ENDPOINTS } from "@/utils/api-config";
 
 export default function Login() {
   const router = useRouter();

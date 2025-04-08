@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { setCookie } from "cookies-next";
-import { ENDPOINTS } from "@/utils/apiConfig";
+import { ENDPOINTS } from "@/utils/api-config";
 import Link from "next/link";
 
 export default function SignUp() {
