@@ -8,10 +8,7 @@ import { useLocalStorage } from "usehooks-ts";
 export function useEvents() {
   const router = useRouter();
   const [events, setEvents] = useState([]);
-  const [selectedEventId, setSelectedEventId] = useLocalStorage(
-    "selectedEvent",
-    ""
-  );
+  const [selectedEventId, setSelectedEventId] = useLocalStorage("selectedEvent", "");
   const token = getCookie("token");
 
   const selectedEvent = events?.find(
