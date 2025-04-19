@@ -1,4 +1,5 @@
 "use client";
+import { profileGradient } from "@/utils/profile-picture";
 import React, { useState, useEffect } from "react";
 
 interface Place {
@@ -161,7 +162,10 @@ export default function DiscoverPage() {
                 className="flex items-center duration-300 hover:bg-white/10 border border-white/0 hover:border-white/5 p-2 rounded-xl"
               >
                 <div className="h-full center mr-2">
-                  <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
+                  <div
+                    className="w-10 h-10 bg-gray-300 rounded-full"
+                    style={{ background: profileGradient({ id: place.city }) }}
+                  ></div>
                 </div>
                 <div className="flex flex-col">
                   <p className="font-semibold">{place.city}</p>
@@ -181,7 +185,10 @@ export default function DiscoverPage() {
                 key={category}
                 className="p-4 rounded-xl flex flex-col bg-white/10 duration-300 hover:bg-white/15 border border-white/5"
               >
-                <div className="w-12 h-12 bg-gray-300 rounded-full mb-2"></div>
+                <div
+                  className="w-12 h-12  rounded-full mb-2"
+                  style={{ background: profileGradient({ id: category }) }}
+                ></div>
                 <p className="font-semibold">{category}</p>
                 <p className="text-white/60">{events} Events</p>
               </div>
