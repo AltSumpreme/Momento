@@ -38,6 +38,7 @@ const CreateEventPage = () => {
       setLocation("");
     } catch (error) {
       alert("Failed to create event");
+      console.error("Error creating event:", error);
     }
   };
 

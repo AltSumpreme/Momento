@@ -4,7 +4,7 @@ import { profileGradient } from "@/utils/profile-picture";
 import Link from "next/link";
 import { Calendar } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { deleteCookie, getCookie } from "cookies-next";
 import axios from "axios";
 import { ENDPOINTS } from "@/utils/api-config";
@@ -27,6 +27,20 @@ export default function RootLayout({
 
   const token = getCookie("token");
 
+ const fetchUserBookings = useCallback(() => {
+  axios
+    .get(ENDPOINTS.GET_BOOKINGS, {
+      headers: { Authorization: `Bearer ${token}` },
+      params: { page: 1, limit: 10 },
+    })
+    .then((res) => {
+      setBookings(res.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching bookings:", error);
+      setBookings([]);
+    });
+}, [token]);
   useEffect(() => {
     axios
       .get(ENDPOINTS.PROFILE, {
@@ -40,22 +54,7 @@ export default function RootLayout({
         deleteCookie("token");
         router.push("/login");
       });
-  }, [router, token]);
-
-  const fetchUserBookings = () => {
-    axios
-      .get(ENDPOINTS.GET_BOOKINGS, {
-        headers: { Authorization: `Bearer ${token}` },
-        params: { page: 1, limit: 10 },
-      })
-      .then((res) => {
-        setBookings(res.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching bookings:", error);
-        setBookings([]);
-      });
-  };
+  }, [router, token, fetchUserBookings]);
 
   const handleLogout = () => {
     deleteCookie("token");

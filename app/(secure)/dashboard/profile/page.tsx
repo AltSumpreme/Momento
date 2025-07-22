@@ -26,10 +26,7 @@ export default function UserProfilePage() {
       });
   }, [router, token]);
 
-  const handleLogout = () => {
-    deleteCookie("token");
-    router.push("/login");
-  };
+ 
 
   return (
     <div className="text-white flex flex-col size-full">

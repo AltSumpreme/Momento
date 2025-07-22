@@ -55,9 +55,13 @@ export default function SignUp() {
       } else {
         setMessage("Sign up failed. Please try again.");
       }
-    } catch (err: any) {
-      if (err.response?.status === 400) {
-        setMessage("Invalid input. Please check your details.");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        if (err.response?.status === 400) {
+          setMessage("Invalid input. Please check your details.");
+        } else {
+          setMessage("Something went wrong. Please try again later.");
+        }
       } else {
         setMessage("Something went wrong. Please try again later.");
       }

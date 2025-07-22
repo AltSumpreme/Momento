@@ -45,9 +45,13 @@ export default function Login() {
       } else {
         setMessage("Login failed. Please try again.");
       }
-    } catch (err: any) {
-      if (err.response?.status === 401) {
-        setMessage("Invalid email or password.");
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        if (err.response?.status === 401) {
+          setMessage("Invalid email or password.");
+        } else {
+          setMessage("Something went wrong. Please try again later.");
+        }
       } else {
         setMessage("Something went wrong. Please try again later.");
       }

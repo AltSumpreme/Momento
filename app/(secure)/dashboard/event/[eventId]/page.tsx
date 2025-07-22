@@ -32,7 +32,8 @@ const EventPage = () => {
     }
   };
 
-  const date = new Date(selectedEvent?.eventDateTime!);
+  if(!selectedEvent) return null;
+  const date = new Date(selectedEvent?.eventDateTime);
   const formatted = date.toLocaleString("en-US", {
     dateStyle: "long",
     timeStyle: "short",
